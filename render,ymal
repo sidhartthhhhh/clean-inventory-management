@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: inventoryms-app
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn InventoryMS.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: InventoryMS.settings
+      - key: SECRET_KEY
+        generateValue: true
