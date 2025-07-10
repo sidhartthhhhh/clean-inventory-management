@@ -1,0 +1,62 @@
+{% extends 'store/base.html' %}
+{% block title %}Profile{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container my-4">
+        <div class="box-main row">
+          <div class="col-md-3 col-lg-3"></div>
+          <div class="col-md-6 col-lg-6">
+          <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <h1 id="header" class="text-success">Edit Your Profile
+              </h1>
+              <div class="float-label">
+                <label> username </label>
+                <span class="text-danger">{{ u_form.username.errors }}</span>
+                {{ u_form.username }}
+              </div>
+              <br>
+              <div class="float-label">
+                <label> email </label>
+                <span class="text-danger">{{ u_form.email.errors }}</span>
+                {{ u_form.email }}
+              </div>
+              <br>
+              <div class="float-label">
+                <label>secondary email </label>
+                <span class="text-danger">{{ p_form.email.errors }}</span>
+                {{ p_form.email }}
+              </div>
+              <br>
+              <div class="float-label">
+                <label> first name </label>
+                <span class="text-danger">{{ p_form.first_name.errors }}</span>
+                {{ p_form.first_name}}
+              </div>
+              <br>
+              <div class="float-label">
+                <label> last name </label>
+                <span class="text-danger">{{ p_form.last_name.errors }}</span>
+                {{ p_form.last_name}}
+              </div>
+              <br>
+              <div class="float-label">
+                <label> mobile number </label>
+                <span class="text-danger">{{ p_form.telephone.errors }}</span>
+                {{ p_form.telephone}}
+              </div>
+              <br>
+              <div class="float-label">
+                <label> lasttname </label>
+                {{ p_form.profile_picture}}
+              </div>
+              <br>
+              <button type="submit" class="btn btn-success">update</button>
+            </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3"></div>
+          </div>
+
+{% endblock %}
